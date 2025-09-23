@@ -100,6 +100,7 @@ if __name__ == "__main__":
     parser.add_argument(
         '--labelstudio_file',
         type=str,
+        default='../data/intent_classify/raw/data.jsonl',
         help=
         'The export file path of label studio, only support the JSON format.')
     parser.add_argument('--doccano_file',
@@ -110,7 +111,7 @@ if __name__ == "__main__":
         '--task_type',
         type=str,
         choices=['ext', 'cls'],
-        default='ext',
+        default='cls',
         help=
         'Select task type, ext for the extraction task and cls for the classification task, defaults to ext.'
     )
