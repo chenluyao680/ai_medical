@@ -218,7 +218,7 @@ if __name__ == "__main__":
     # yapf: disable
     parser = argparse.ArgumentParser()
 
-    parser.add_argument("-b", "--batch_size", default=16, type=int,
+    parser.add_argument("-b", "--batch_size", default=8, type=int,
                         help="Batch size per GPU/CPU for training.")
     parser.add_argument("--learning_rate", default=1e-5,
                         type=float, help="The initial learning rate for Adam.")
@@ -230,7 +230,7 @@ if __name__ == "__main__":
                         help="The output directory where the model checkpoints will be written.")
     parser.add_argument("--max_seq_len", default=512, type=int, help="The maximum input sequence length. "
                         "Sequences longer than this will be split automatically.")
-    parser.add_argument("--num_epochs", default=10, type=int,
+    parser.add_argument("--num_epochs", default=100, type=int,
                         help="Total number of training epochs to perform.")
     parser.add_argument("--seed", default=1000, type=int,
                         help="Random seed for initialization")
@@ -240,7 +240,7 @@ if __name__ == "__main__":
                         help="The interval steps to evaluate model performance.")
     parser.add_argument("-D", '--device', choices=['cpu', 'gpu'], default="gpu",
                         help="Select which device to train model, defaults to gpu.")
-    parser.add_argument("-m", "--model", default="D:\\python_project\\test\\ai_medical\\pretrained\\uie_base_bert_pytorch", type=str,
+    parser.add_argument("-m", "--model", default="D:\\python_project\\test\\ai_medical\pretrained\\uie_base_bert_pytorch", type=str,
                         help="Select the pretrained model for few-shot learning.")
     parser.add_argument("--max_model_num", default=5, type=int,
                         help="Max number of saved model. Best model and earlystopping model is not included.")

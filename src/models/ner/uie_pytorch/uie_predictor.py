@@ -635,7 +635,7 @@ def parse_args():
         "-t",
         "--task_path",
         type=str,
-        default="D:\\python_project\\test\\ai_medical\\src\\models\\cls\\uie_pytorch\\checkpoint\\model_best",
+        default="D:\\python_project\\test\\ai_medical\\src\\models\\ner\\uie_pytorch\\checkpoint\\model_best",
         help="The path prefix of custom inference model to be used.", )
     parser.add_argument(
         "-p",
@@ -674,10 +674,8 @@ def parse_args():
 
 if __name__ == '__main__':
     args = parse_args()
-    args.schema = {
-        "query_type": ["request", "consult"]  # 顶层key说明任务（query类型分类），value是候选类别
-    }
+    args.schema = ['航母']
     args.schema_lang = "en"
     uie = UIEPredictor(model=args.model, task_path=args.task_path, schema_lang=args.schema_lang, schema=args.schema, engine=args.engine, device=args.device,
                        position_prob=args.position_prob, max_seq_len=args.max_seq_len, batch_size=64, split_sentence=False, use_fp16=args.use_fp16)
-    print(uie("帮我预约下周三的皮肤科专家号，同时想了解湿疹的治疗周期一般有多长"))
+    print(uie("印媒所称的“印度第一艘国产航母”—“维克兰特”号"))

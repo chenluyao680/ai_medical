@@ -21,7 +21,7 @@ PROCESSED_DATA_DIR = "D:\\python_project\\test\\ai_medical\\data\\spell_check\\p
 # 模型保存目录（训练完成后保存模型）
 MODEL_SAVE_DIR = "D:\\python_project\\test\\ai_medical\\models\\bart_correction"
 # 预训练模型（中文BART基础模型，适配中文纠错任务）
-PRETRAINED_MODEL = "fnlp/bart-base-chinese"
+PRETRAINED_MODEL = "D:\\python_project\\test\\ai_medical\\pretrained\\bart-base-chinese"
 # 设备配置（优先GPU，无GPU则用CPU）
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 # 文本最大长度（根据你的句子长度调整，BART-base建议≤128）
@@ -345,5 +345,11 @@ def main():
         # -------------------------- 步骤5：训练完成总结 --------------------------
         print("=" * 70)
         print("🎉 训练全部完成！")
+    finally:
+        print("\n📝 训练流程结束，清理资源...")
+        # 清理GPU内存（避免显存占用）
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
+        print("✅ 资源清理完成！")
 if __name__ == '__main__':
     main()
